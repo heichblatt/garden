@@ -1,6 +1,8 @@
 ---
 epistemic-status: budding
 ---
+- How do I handle book references?
+	- do books get their own note incl. proper bibliography?
 
 - What is [[Productivity]]
 - What is [[Art]]

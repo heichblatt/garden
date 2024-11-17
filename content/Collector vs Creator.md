@@ -8,8 +8,8 @@ epistemic-status: budding
 
 Better:
 
-> **Collect**. Note-taking, raw snippets, Kindle highlights + personal commentary.
-> **Connect**. Link to previous notes. Do not keep orphan notes.
-> **Create**. [[Think in Public|Write original article]].
+> **Collect**. Note-taking, raw snippets, Kindle highlights + personal commentary. <br/>
+> **Connect**. Link to previous notes. Do not keep orphan notes.<br/>
+> **Create**. [[Think in Public|Write original articles]].
 
 A special case of [[Falling in love with your tools]].
