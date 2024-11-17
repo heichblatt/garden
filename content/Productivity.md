@@ -1,5 +1,5 @@
 ---
-epistemic-status: budding
+epistemic-status: seedling
 ---
 ## Essentialist Productivity
 

@@ -1,3 +1,6 @@
+---
+epistemic-status: seedling
+---
 [Wikipedia:](https://en.wikipedia.org/wiki/Creativity)
 
 > **Creativity** is the ability to form novel and valuable ideas or works using your [imagination](https://en.wikipedia.org/wiki/Imagination "Imagination").
