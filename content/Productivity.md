@@ -1,7 +1,6 @@
 ---
 epistemic-status: budding
 ---
-
 ## Essentialist Productivity
 
 According to [[Essentialism|McKeown's Essentialism]]:
