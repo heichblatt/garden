@@ -35,8 +35,8 @@ epistemic-status: budding
 - [Thinking]: Kleons 3 circles https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fd9a0b4de-9927-452b-9be5-eb3d83986568_800x510.jpeg via https://austinkleon.substack.com/p/thinking-outside-of-your-head
 - Marginalia https://archive.ph/8zEKU
 
-https://austinkleon.com/2023/08/11/walking-with-a-net/
-similarity to taking notebook wherever you go
+- https://austinkleon.com/2023/08/11/walking-with-a-net/
+	similarity to taking notebook wherever you go
 
 - wissen=interesse x zeit
 	- vs https://www.swyx.io/big-l-notation
