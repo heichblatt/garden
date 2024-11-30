@@ -46,8 +46,6 @@ epistemic-status: budding
 		- ChatGPT: „“Bildungsbarriere durch Eltern” oder “intergenerationale Bildungshemmung” bezeichnet. Auch Begriffe wie “Bildungspessimismus” oder “Bildungsabwehr”
 	- funktioniert auch für andere kontexte: menschen scheuen investitionen, die einen bereich betreffen, der über ihre eigenen erfahrungen hinausgeht
 - https://www.swyx.io/big-l-notation
-<<<<<<< content/Impulses.md
-=======
 - There is a continuity from medieval scriptoria to modern Git repositories.
 	- respective text has primary function
 		- runtime is either brains or computers
@@ -57,4 +55,3 @@ epistemic-status: budding
 		- culture of writing
 		- community of practice
 		- master-apprentice relationship
->>>>>>> content/Impulses.md
