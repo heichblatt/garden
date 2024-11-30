@@ -1,6 +1,15 @@
 ---
 epistemic-status: budding
 ---
+
+- 2 (3?) kinds of notes?
+> 	https://fortelabs.com/blog/how-to-take-smart-notes/
+> 	section „The 8 Steps of Taking Smart Notes“
+> 	1. Make fleeting notes
+> 	2. Make literature notes
+> 	3. Make permanent notes
+> 	4. Now add your new permanent notes to the slip-box
+
 - How do I handle book references?
 	- do books get their own note incl. proper bibliography?
 
@@ -38,6 +47,8 @@ similarity to taking notebook wherever you go
 		- ChatGPT: „“Bildungsbarriere durch Eltern” oder “intergenerationale Bildungshemmung” bezeichnet. Auch Begriffe wie “Bildungspessimismus” oder “Bildungsabwehr”
 	- funktioniert auch für andere kontexte: menschen scheuen investitionen, die einen bereich betreffen, der über ihre eigenen erfahrungen hinausgeht
 - https://www.swyx.io/big-l-notation
+<<<<<<< content/Impulses.md
+=======
 - There is a continuity from medieval scriptoria to modern Git repositories.
 	- respective text has primary function
 		- runtime is either brains or computers
@@ -47,3 +58,4 @@ similarity to taking notebook wherever you go
 		- culture of writing
 		- community of practice
 		- master-apprentice relationship
+>>>>>>> content/Impulses.md

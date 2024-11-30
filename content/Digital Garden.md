@@ -23,7 +23,7 @@ See my [[Garden Rules]]
 - First Mention: Mark Bernstein: [Hypertext Gardens](https://www.eastgate.com/garden/Enter.html)
 - Modern Digital Garden
 	- [Ness Labs](https://nesslabs.com/)
-	  A community and article library around the topics [[Productivity|Productivity]] and [[Creativity]].
+	  A community and article library around the topics [[productivity|Productivity]] and [[Creativity]].
 	- [Anne-Laure Le Cunff: How to set up your own digital garden](https://nesslabs.com/digital-garden-set-up)
 	  One of the seminal texts on the tooling of modern digital gardening. Her own digital garden is [Mental Nodes](https://www.mentalnodes.com/a-gardening-guide-for-your-mind).
 	- [Mental Nodes: A gardening guide for your mind](https://www.mentalnodes.com/a-gardening-guide-for-your-mind)
@@ -40,3 +40,7 @@ See my [[Garden Rules]]
 - Similar but different:
 	- [[Second Brain]]
 	- [[Cozyweb]]
+
+## Links
+
+- https://github.com/MaggieAppleton/digital-gardeners
