@@ -12,7 +12,7 @@ epistemic-status: budding
 
 - How do I handle book references?
 	- do books get their own note incl. proper bibliography?
-
+- Concept: Mammoth Loop, cf Don‘t fall in love with your tools
 - What is [[Productivity]]
 - What is [[Art]]
 - What is [[Creativity]]
