@@ -55,3 +55,4 @@ epistemic-status: budding
 		- culture of writing
 		- community of practice
 		- master-apprentice relationship
+- [Newport: Productivity Raindances](https://podcasts.apple.com/de/podcast/deep-questions-with-cal-newport/id1515786216?i=1000693020606) als Symptom, seine eigentlichen Outputs aus dem Auge verloren zu haben
