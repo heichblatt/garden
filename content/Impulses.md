@@ -12,7 +12,7 @@ epistemic-status: budding
 
 - How do I handle book references?
 	- do books get their own note incl. proper bibliography?
-
+- Concept: Mammoth Loop, cf Don‘t fall in love with your tools
 - What is [[Productivity]]
 - What is [[Art]]
 - What is [[Creativity]]
@@ -55,3 +55,4 @@ epistemic-status: budding
 		- culture of writing
 		- community of practice
 		- master-apprentice relationship
+- [Newport: Productivity Raindances](https://podcasts.apple.com/de/podcast/deep-questions-with-cal-newport/id1515786216?i=1000693020606) als Symptom, seine eigentlichen Outputs aus dem Auge verloren zu haben
