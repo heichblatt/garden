@@ -12,14 +12,11 @@ const config: QuartzConfig = {
     pageTitleSuffix: "",
     enableSPA: true,
     enablePopovers: true,
-    analytics: {
-      provider: null,
-    },
+    analytics: null,
     locale: "en-US",
     baseUrl: "garden.hanneseichblatt.de",
     ignorePatterns: ["private", "templates", ".obsidian", "Impulses.md"],
     defaultDateType: "modified",
-    generateSocialImages: false,
     theme: {
       fontOrigin: "googleFonts",
       cdnCaching: false,
@@ -87,6 +84,7 @@ const config: QuartzConfig = {
       }),
       Plugin.Assets(),
       Plugin.Static(),
+      Plugin.Favicon(),
       Plugin.NotFoundPage(),
       // Comment out CustomOgImages to speed up build time
       Plugin.CustomOgImages(),
