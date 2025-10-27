@@ -34,60 +34,13 @@ To add a custom domain, check out [Cloudflare's documentation](https://developer
 
 ## GitHub Pages
 
-In your local Quartz, create a new file `quartz/.github/workflows/deploy.yml`.
+Quartz now includes a ready-to-use GitHub Pages workflow at `.github/workflows/deploy.yml`.
+The workflow builds your Quartz site and publishes it to GitHub Pages every time updates are pushed to the `v4` branch.
 
-```yaml title="quartz/.github/workflows/deploy.yml"
-name: Deploy Quartz site to GitHub Pages
+To finish configuring your deployment:
 
-on:
-  push:
-    branches:
-      - v4
-
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
-
-jobs:
-  build:
-    runs-on: ubuntu-22.04
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0 # Fetch all history for git info
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-      - name: Install Dependencies
-        run: npm ci
-      - name: Build Quartz
-        run: npx quartz build
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: public
-
-  deploy:
-    needs: build
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
-```
-
-Then:
-
-1. Head to "Settings" tab of your forked repository and in the sidebar, click "Pages". Under "Source", select "GitHub Actions".
-2. Commit these changes by doing `npx quartz sync`. This should deploy your site to `<github-username>.github.io/<repository-name>`.
+1. Head to the "Settings" tab of your forked repository and in the sidebar, click "Pages". Under "Source", select "GitHub Actions".
+2. Commit and push your Quartz content by running `npx quartz sync`. This should deploy your site to `<github-username>.github.io/<repository-name>`.
 
 > [!hint]
 > If you get an error about not being allowed to deploy to `github-pages` due to environment protection rules, make sure you remove any existing GitHub pages environments.
@@ -179,51 +132,6 @@ Using `docs.example.com` is an example of a subdomain. They're a simple way of c
 4. Under "Publish directory", enter `public`.
 5. Press Deploy. Once it's live, you'll have a `*.netlify.app` URL to view the page.
 6. To add a custom domain, check "Domain management" in the left sidebar, just like with Vercel.
-
-## GitLab Pages
-
-In your local Quartz, create a new file `.gitlab-ci.yml`.
-
-```yaml title=".gitlab-ci.yml"
-stages:
-  - build
-  - deploy
-
-image: node:20
-cache: # Cache modules in between jobs
-  key: $CI_COMMIT_REF_SLUG
-  paths:
-    - .npm/
-
-build:
-  stage: build
-  rules:
-    - if: '$CI_COMMIT_REF_NAME == "v4"'
-  before_script:
-    - hash -r
-    - npm ci --cache .npm --prefer-offline
-  script:
-    - npx quartz build
-  artifacts:
-    paths:
-      - public
-  tags:
-    - gitlab-org-docker
-
-pages:
-  stage: deploy
-  rules:
-    - if: '$CI_COMMIT_REF_NAME == "v4"'
-  script:
-    - echo "Deploying to GitLab Pages..."
-  artifacts:
-    paths:
-      - public
-```
-
-When `.gitlab-ci.yaml` is committed, GitLab will build and deploy the website as a GitLab Page. You can find the url under `Deploy > Pages` in the sidebar.
-
-By default, the page is private and only visible when logged in to a GitLab account with access to the repository but can be opened in the settings under `Deploy` -> `Pages`.
 
 ## Self-Hosting
 
