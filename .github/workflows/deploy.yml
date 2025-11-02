@@ -28,7 +28,7 @@ jobs:
         with:
           fetch-depth: 0 # Fetch all history for git info
           ref: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.deploy_ref || github.ref }}
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
           node-version: 22
       - name: Install dependencies
