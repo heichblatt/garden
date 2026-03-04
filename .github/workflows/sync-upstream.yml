@@ -1,0 +1,86 @@
+name: Sync upstream Quartz
+
+on:
+  schedule:
+    - cron: "0 2 * * 0"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+          # GITHUB_TOKEN PRs won't trigger other workflows.
+          # If you add PR CI checks later, use a PAT in secrets.SYNC_TOKEN.
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Add upstream remote and fetch
+        run: |
+          git remote add upstream https://github.com/jackyzha0/quartz.git
+          git fetch upstream v4
+
+      - name: Check if upstream has new commits
+        id: check
+        run: |
+          UPSTREAM_HEAD=$(git rev-parse upstream/v4)
+          echo "upstream_head=${UPSTREAM_HEAD}" >> "$GITHUB_OUTPUT"
+          if git merge-base --is-ancestor "${UPSTREAM_HEAD}" origin/main; then
+            echo "up_to_date=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "up_to_date=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Create sync branch and merge upstream
+        if: steps.check.outputs.up_to_date == 'false'
+        run: |
+          BRANCH="chore/sync-upstream-$(date -u +%Y%m%d)"
+          echo "BRANCH=${BRANCH}" >> "$GITHUB_ENV"
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout -b "${BRANCH}" origin/main
+          git merge upstream/v4 -X ours --no-edit
+
+      - name: Setup Node.js
+        if: steps.check.outputs.up_to_date == 'false'
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+
+      - name: Update package-lock.json
+        if: steps.check.outputs.up_to_date == 'false'
+        run: |
+          npm install
+          if ! git diff --quiet package-lock.json; then
+            git add package-lock.json
+            git commit -m "chore: update package-lock.json after upstream sync"
+          fi
+
+      - name: Push branch
+        if: steps.check.outputs.up_to_date == 'false'
+        run: git push origin "${BRANCH}"
+
+      - name: Create PR and enable auto-merge
+        if: steps.check.outputs.up_to_date == 'false'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          UPSTREAM_VERSION=$(node -p "require('./package.json').version")
+          PR_URL=$(gh pr create \
+            --title "chore: sync upstream Quartz v${UPSTREAM_VERSION}" \
+            --body "Automated sync from upstream \`jackyzha0/quartz\` \`v4\` branch.
+
+          **Upstream HEAD:** [\`${{ steps.check.outputs.upstream_head }}\`](https://github.com/jackyzha0/quartz/commit/${{ steps.check.outputs.upstream_head }})
+
+          Merged with \`-X ours\` to preserve local customizations on conflict.
+
+          Review carefully: \`quartz.config.ts\`, \`quartz.layout.ts\`, \`quartz/\` internals, \`package.json\`." \
+            --head "${BRANCH}" \
+            --base main)
+          gh pr merge "${PR_URL}" --auto --merge
