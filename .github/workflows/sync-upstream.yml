@@ -64,7 +64,7 @@ jobs:
 
       - name: Push branch
         if: steps.check.outputs.up_to_date == 'false'
-        run: git push origin "${BRANCH}"
+        run: git push origin "${BRANCH}" --force
 
       - name: Create PR and enable auto-merge
         if: steps.check.outputs.up_to_date == 'false'
@@ -72,15 +72,18 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           UPSTREAM_VERSION=$(node -p "require('./package.json').version")
-          PR_URL=$(gh pr create \
-            --title "chore: sync upstream Quartz v${UPSTREAM_VERSION}" \
-            --body "Automated sync from upstream \`jackyzha0/quartz\` \`v4\` branch.
+          PR_URL=$(gh pr list --head "${BRANCH}" --base main --json url --jq '.[0].url')
+          if [ -z "${PR_URL}" ]; then
+            PR_URL=$(gh pr create \
+              --title "chore: sync upstream Quartz v${UPSTREAM_VERSION}" \
+              --body "Automated sync from upstream \`jackyzha0/quartz\` \`v4\` branch.
 
           **Upstream HEAD:** [\`${{ steps.check.outputs.upstream_head }}\`](https://github.com/jackyzha0/quartz/commit/${{ steps.check.outputs.upstream_head }})
 
           Merged with \`-X ours\` to preserve local customizations on conflict.
 
           Review carefully: \`quartz.config.ts\`, \`quartz.layout.ts\`, \`quartz/\` internals, \`package.json\`." \
-            --head "${BRANCH}" \
-            --base main)
+              --head "${BRANCH}" \
+              --base main)
+          fi
           gh pr merge "${PR_URL}" --auto --merge
