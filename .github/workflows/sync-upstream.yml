@@ -29,8 +29,10 @@ jobs:
       - name: Check if upstream has new commits
         id: check
         run: |
-          LATEST_TAG=$(git tag --list 'v4.*' --sort=-version:refname | head -1)
-          UPSTREAM_HEAD=$(git rev-parse "${LATEST_TAG}")
+          LATEST_TAG=$(git ls-remote --tags upstream 'refs/tags/v4.*' \
+            | awk '{print $2}' | grep -v '\^{}' | sed 's|refs/tags/||' \
+            | sort -V | tail -1)
+          UPSTREAM_HEAD=$(git rev-parse "refs/tags/${LATEST_TAG}^{}")
           echo "latest_tag=${LATEST_TAG}" >> "$GITHUB_OUTPUT"
           echo "upstream_head=${UPSTREAM_HEAD}" >> "$GITHUB_OUTPUT"
           if git merge-base --is-ancestor "${UPSTREAM_HEAD}" origin/main; then
