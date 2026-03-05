@@ -72,9 +72,10 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           UPSTREAM_VERSION=$(node -p "require('./package.json').version")
-          PR_URL=$(gh pr list --head "${BRANCH}" --base main --json url --jq '.[0].url')
+          PR_URL=$(gh pr list --repo "${GITHUB_REPOSITORY}" --head "${BRANCH}" --base main --json url --jq '.[0].url')
           if [ -z "${PR_URL}" ]; then
             PR_URL=$(gh pr create \
+              --repo "${GITHUB_REPOSITORY}" \
               --title "chore: sync upstream Quartz v${UPSTREAM_VERSION}" \
               --body "Automated sync from upstream \`jackyzha0/quartz\` \`v4\` branch.
 
@@ -86,4 +87,4 @@ jobs:
               --head "${BRANCH}" \
               --base main)
           fi
-          gh pr merge "${PR_URL}" --auto --merge
+          gh pr merge --repo "${GITHUB_REPOSITORY}" "${PR_URL}" --auto --merge
