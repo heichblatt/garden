@@ -1,28 +1,15 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:recommended"
-  ],
+  "extends": ["config:recommended"],
+  "enabledManagers": ["github-actions"],
   "dependencyDashboard": true,
+  "schedule": ["before 6am on saturday"],
   "automerge": true,
   "automergeType": "pr",
   "platformAutomerge": true,
   "packageRules": [
     {
-      "description": "Group all non-major npm updates into one weekly PR",
-      "matchManagers": ["npm"],
-      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
-      "groupName": "npm dependencies (non-major)",
-      "automerge": true
-    },
-    {
-      "description": "Keep major npm updates as separate PRs",
-      "matchManagers": ["npm"],
-      "matchUpdateTypes": ["major"],
-      "automerge": true
-    },
-    {
-      "description": "Group all GitHub Actions updates into one weekly PR",
+      "description": "Group all non-major GitHub Actions updates into one weekly PR",
       "matchManagers": ["github-actions"],
       "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
       "groupName": "GitHub Actions (non-major)",
