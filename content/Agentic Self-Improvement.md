@@ -15,7 +15,7 @@ Self-improvement requires
 There are several approaches to this.
 
 1. [Karpathy's AI Librarian](https://venturebeat.com/data/karpathy-shares-llm-knowledge-base-architecture-that-bypasses-rag-with-an) has been the most influential. It uses a knowledge-base-in-context approach where the system maintains a working memory of relevant information and retrieves it as needed.
-    - [Marciuo Puga's Cog](https://github.com/marciopuga/cog), a prototypical "plain-text cognitive architecture for Claude Code". (I also like his blogging/[[Thinking in Public]] while developing it in a [separate blog only for Cog.](https://lab.puga.com.br/cog/#/journal)
+    - [Marciuo Puga's Cog](https://github.com/marciopuga/cog), a prototypical "plain-text cognitive architecture for Claude Code". (I also like his blogging/[[Think in Public]] while developing it in a [separate blog only for Cog.](https://lab.puga.com.br/cog/#/journal)
     - [GitAgent](https://www.gitagent.sh/) approaches this from the repo-side: defining agents in Git repos, including memory and reflection.
     - [Brenno Ferrari's obsidian-mind](https://github.com/breferrari/obsidian-mind), the same basic idea but simpler and clearly scoped to an Obsidian-based agent.
     - Claude Code's [own memory management](Auto memory), leaked in 2026 ([news post](https://arstechnica.com/ai/2026/03/entire-claude-code-cli-source-code-leaks-thanks-to-exposed-map-file/), [analysis](https://nitter.net/himanshustwts/status/2038924027411222533)), seems to confirm the idea.
