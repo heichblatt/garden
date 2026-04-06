@@ -1,99 +1,129 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+This file provides guidance to Claude Code (claude.ai/code) when working with content in this digital garden.
 
-## Project Overview
+---
 
-**Quartz v4** is a static site generator (SSG) for publishing digital gardens and notes as websites. It features a plugin-based architecture with a content processing pipeline: parse → filter → emit.
+## What This Garden Is
 
-**Key tech stack**: TypeScript, Node.js (v22+), esbuild, Preact, unified/remark/rehype ecosystem for markdown processing.
+A **digital garden**—a space for thinking in public and exploring ideas as they develop. This is not a blog (which is chronological) nor a static portfolio, but a networked collection of thoughts that grows and evolves over time.
 
-## Development Commands
+The garden is fundamentally self-referential: it uses writing to explore writing, uses note-taking to explore note-taking, and uses digital gardening to think about digital gardening. It is simultaneously a tool and an argument for its own existence.
 
-### Building and Serving
-- `npm run docs` - Build and serve the docs site for testing
-- `npm run quartz build` - Build the site once
-- `npm run quartz build --serve` - Build and serve the site (watch mode)
-- `npm run quartz create [path]` - Create a new note
+### Core Themes
 
-### Code Quality
-- `npm run check` - Type check (tsc) and prettier format check (run before committing)
-- `npm run format` - Format all code with prettier
-- `npm run test` - Run all tests (tsx test runner)
-- `npm run test [file]` - Run tests in a specific file (e.g., `npm run test quartz/util/path.test.ts`)
+- **Writing is thinking** — writing generates ideas; it's not recording existing thoughts but creating new ones
+- **Knowledge management** — exploring different frameworks (Zettelkasten, Seeds/Trees/Fruits, epistemic status)
+- **The digital garden concept** — its intellectual lineage and theory
+- **Creation vs. consumption** — the tension between producing and consuming, collecting and thinking
+- **Public thinking** — deliberately thinking in public to create feedback loops and external accountability
+- **AI and human collaboration** — how humans and AI can work together, with clear boundaries
 
-### Performance
-- `npm run profile` - Profile build performance with 0x
+---
 
-### Requirements
-- Node.js v22+
-- npm v10.9.2+
+## The Author's Rules for This Garden
 
-## Architecture Overview
+These rules (from [Garden Rules](./content/Garden%20Rules.md)) are non-negotiable guidelines for what gets added here:
 
-### High-Level Pipeline
+1. **Density over quantity** — state your thoughts clearly and concisely; don't pad
+2. **Link out, don't copy** — link to others' explanations rather than regurgitating them; only explain what you need to express your distinct thought
+3. **Always produce** — the goal is always new content; keep creation/consumption balanced
+4. **Epistemic status** — all notes use the seedling/budding/evergreen taxonomy (from Maggie Appleton) to indicate maturity:
+   - **Seedling**: Early-stage, rough thought
+   - **Budding**: Developed but still evolving
+   - **Evergreen**: Mature, relatively stable idea
+5. **Connectedness is value** — a note is only useful insofar as it links to and from other notes; the garden's worth lies in its networked structure
+6. **Notes progress toward essays** — seedlings mature into budding notes, which eventually become essays
 
-The core content processing happens in three stages:
+---
 
-1. **Parse** (`quartz/processors/parse.ts`): Convert markdown files to AST using remark
-2. **Filter** (`quartz/processors/filter.ts`): Remove content based on filters (e.g., RemoveDrafts)
-3. **Emit** (`quartz/processors/emit.ts`): Generate HTML pages using emitters
+## AI and Authorship
 
-### Key Directories
+The garden has a **firm rule on AI** (see [No AI in the Garden](./content/No%20AI%20in%20the%20Garden.md)):
 
-- **`quartz/build.ts`** - Main build orchestration with watch mode support (see `startWatching()`)
-- **`quartz/plugins/`** - Plugin system with three categories:
-  - `transformers/` - Process markdown (e.g., FrontMatter, SyntaxHighlighting, GitHubFlavoredMarkdown)
-  - `filters/` - Filter content (e.g., RemoveDrafts)
-  - `emitters/` - Generate output (e.g., ContentPage, Static, Favicon)
-- **`quartz/components/`** - Preact UI components (renderPage.tsx is the main layout)
-- **`quartz/util/`** - Utilities (path.ts, fileTrie.ts for file operations; ctx.ts for build context)
-- **`quartz/cli/`** - CLI handlers (args parsing, command implementations)
-- **`quartz.config.ts`** - User-facing configuration file (plugins, theme, locale, etc.)
+> Use it to think and write but never let it think or write for you.
+> It can be an assistant, never an author.
 
-### Configuration System
+This means:
 
-- Users configure Quartz in `quartz.config.ts` following the `QuartzConfig` type (in `quartz/cfg.ts`)
-- Plugins are instantiated from the config during build
-- Theme colors and typography are defined in `configuration.theme`
+- Claude may help brainstorm, clarify thinking, or improve phrasing of existing thoughts
+- Claude may not generate or author content for the garden
+- The final thought, position, and authorship must be human
+- If Claude assists, this should be transparent in the process
 
-### Testing
+---
 
-- Tests use tsx's built-in test runner (`node --test`)
-- Test files: `quartz/util/path.test.ts`, `quartz/util/fileTrie.test.ts`
-- Run single test file: `npm run test quartz/util/path.test.ts`
+## Note Structure
 
-## Common Patterns and Notes
+Notes follow a loose convention:
 
-### Plugin Development
-Plugins implement one of three interfaces from `quartz/plugins/types.ts`:
-- **Transformer**: Modifies files in the processing pipeline
-- **Filter**: Controls which files make it to emitters
-- **Emitter**: Generates output files
+- **Frontmatter**: At minimum, include `epistemic-status: seedling|budding|evergreen`
+- **Content**: Sparse, dense prose. Start with a clear statement of the thought. Use blockquotes for external attributions.
+- **Links**: Use `[[wikilink]]` syntax to link to other notes. Backlinks are automatically generated.
+- **External references**: Link out to sources rather than explaining them
 
-### Markdown Processing
-The remark/rehype ecosystem handles markdown:
-- **Transformers** use remark (AST) for markdown-level modifications
-- **Emitters** convert to HTML via rehype pipeline
+Example opening:
 
-### File Path Handling
-Use utilities from `quartz/util/path.ts`:
-- `FilePath` - Branded type for normalized paths
-- `slugifyFilePath()` - Convert file paths to URL slugs
-- `joinSegments()` - Join path segments safely
+```
+---
+epistemic-status: budding
+---
 
-### Build Context
-The `BuildCtx` type (in `quartz/util/ctx.ts`) is passed through the pipeline and contains:
-- `allSlugs`, `allFiles` - Metadata about all content
-- `cfg` - The configuration
-- `argv` - CLI arguments
+The core assertion: [your thought in one sentence].
 
-### Incremental Builds
-In watch mode, the build tracks changes via `ContentMap` in build.ts. The `ChangeEvent` type tracks file add/modify/delete operations.
+[Attribution or blockquote]
 
-## Important Notes
+[Links to related notes and external sources]
+```
 
-- Always run `npm run check` before committing to catch type errors and formatting issues
-- The build is multi-threaded (see `workerpool` in dependencies) for performance
-- Custom OG image generation is enabled in the config but can be commented out to speed up builds
-- The project uses esbuild's SASS plugin for styling
+---
+
+## Common Patterns in This Garden
+
+- **Thinking through opposition** — many notes explore tensions (e.g., Stream vs Garden, Consumption vs Creation, Stock and Flow)
+- **Philosophical grounding** — ideas are connected to intellectual history and referenced thinkers (Vannevar Bush, Luhmann, Maggie Appleton, etc.)
+- **Multi-language thinking** — some notes appear in German; the author thinks in multiple languages
+- **Impulses as inbox** — [Impulses.md](./content/Impulses.md) is a public scratchpad for half-formed thoughts and questions
+
+---
+
+## Writing Style
+
+- **Analytical and self-aware** — the voice is reflective but not personal
+- **Workspace, not blog** — this reads as a thinking tool made public, not a published work
+- **Minimal storytelling** — ideas are presented directly; personal anecdotes are rare
+- **Functional sparseness** — every sentence should serve a purpose
+
+---
+
+## Quick Start: Local Building
+
+Quartz is the static site generator; it's upstream scaffolding. To preview the garden locally:
+
+```bash
+npm run quartz build --serve
+# Opens the site at http://localhost:3000
+```
+
+To create a new note:
+
+```bash
+npm run quartz create path/to/your/note
+```
+
+Then edit the resulting file in `content/`. The site hot-reloads.
+
+**Type check and format before committing:**
+
+```bash
+npm run check  # catches type errors and formatting issues
+```
+
+---
+
+## References
+
+- [Digital Garden](./content/Digital%20Garden.md) — the garden's founding concept
+- [Seeds, Trees and Fruits](./content/Seeds,%20Trees%20and%20Fruits.md) — the maturity model for notes
+- [Think in Public](./content/Think%20in%20Public.md) — why this is public
+- [AI Interaction Modes](./content/AI%20Interaction%20Modes.md) — taxonomy of human-AI collaboration patterns
