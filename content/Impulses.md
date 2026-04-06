@@ -56,4 +56,8 @@ tags:
 		- culture of writing
 		- community of practice
 		- master-apprentice relationship
+    - implications for [[AI-Human Collaboration]]?
 - [Newport: Productivity Raindances](https://podcasts.apple.com/de/podcast/deep-questions-with-cal-newport/id1515786216?i=1000693020606) als Symptom, seine eigentlichen Outputs aus dem Auge verloren zu haben
+- If [the weapons available to a society strongly influence the structure of that society](https://www.reddit.com/r/dune/comments/1scfc14/comment/oeb8m1m/), how will AI-powered networked autonomous warfare change societies?
+  - [China unveils Atlas drone swarm system – each one controls 96 precision drones](https://nypost.com/video/china-unveils-atlas-drone-swarm-system-each-one-controls-96-precision-drones/)
+  - [China just released footage of their robot wolves running simulated street battles with micro-missiles and grenade launchers.](https://nitter.in/MarioNawfal/status/2037801866621571562)
