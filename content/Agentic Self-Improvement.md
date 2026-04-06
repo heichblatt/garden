@@ -15,7 +15,7 @@ Self-improvement requires
 
 There are several approaches to this.
 
-1. [Karpathy's AI Librarian](https://venturebeat.com/data/karpathy-shares-llm-knowledge-base-architecture-that-bypasses-rag-with-an) has been the most influential. It uses a knowledge-base-in-context approach where the system maintains a working memory of relevant information and retrieves it as needed. [Karpathy later expanded on the idea with LLM Wiki].(https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f)
+1. [Karpathy's AI Librarian](https://venturebeat.com/data/karpathy-shares-llm-knowledge-base-architecture-that-bypasses-rag-with-an) has been the most influential. It uses a knowledge-base-in-context approach where the system maintains a working memory of relevant information and retrieves it as needed. [Karpathy later expanded on the idea with LLM Wiki].(https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f). A very early version can be seen in The ["append-and-review note"](https://karpathy.bearblog.dev/the-append-and-review-note/).
     - [Marciuo Puga's Cog](https://github.com/marciopuga/cog), a prototypical "plain-text cognitive architecture for Claude Code". (I also like his blogging/[[Think in Public]] while developing it in a [separate blog only for Cog.](https://lab.puga.com.br/cog/#/journal)
     - [GitAgent](https://www.gitagent.sh/) approaches this from the repo-side: defining agents in Git repos, including memory and reflection.
     - [Brenno Ferrari's obsidian-mind](https://github.com/breferrari/obsidian-mind), the same basic idea but simpler and clearly scoped to an Obsidian-based agent.
