@@ -1,0 +1,14 @@
+version: '3'
+
+tasks:
+  default:
+    desc: Alias for serve task
+    cmds:
+      - task: serve
+
+  serve:
+    desc: Start local live preview server on http://localhost:8080
+    cmds:
+      - chmod +x ./quartz/bootstrap-cli.mjs
+      - ./quartz/bootstrap-cli.mjs build --serve
+    interactive: true
