@@ -1,5 +1,6 @@
 ---
-epistemic-status: budding
+tags:
+  - epistemic-status:budding
 ---
 
 Because [[Writing is Thinking]], mindmapping is an excellent tool for initial exploration of subjects.

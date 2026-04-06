@@ -1,5 +1,6 @@
 ---
-epistemic-status: budding
+tags:
+  - epistemic-status:budding
 ---
 
 All professions and to a lesser extent most [[Productivity|human activity]] can be classified as either science, craft or art. Every profession will always share in the other two but be mainly located in one category.

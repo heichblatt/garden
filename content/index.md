@@ -1,6 +1,7 @@
 ---
 title: Welcome
-epistemic-status: evergreen
+tags:
+  - epistemic-status:evergreen
 ---
 
 This is a [[Digital Garden]].

@@ -1,5 +1,6 @@
 ---
-epistemic-status: budding
+tags:
+  - epistemic-status:budding
 ---
 
 A common dichotomy when talking about content structure.

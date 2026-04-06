@@ -1,5 +1,6 @@
 ---
-epistemic-status: budding
+tags:
+  - epistemic-status:budding
 ---
 
 > "Notes on paper, or on a computer screen [...] do not make contemporary physics or other kinds of intellectual endeavour easier, they make it possible."

@@ -1,5 +1,6 @@
 ---
-epistemic-status: budding
+tags:
+  - epistemic-status:budding
 ---
 
 [Robin Sloan: Stock and Flow](https://snarkmarket.com/2010/4890/#what)

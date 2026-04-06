@@ -1,5 +1,6 @@
 ---
-epistemic-status: budding
+tags:
+  - epistemic-status:budding
 ---
 
 All notes in the garden are tagged with an epistemic status. The status is a rough indicator of the note's maturity.

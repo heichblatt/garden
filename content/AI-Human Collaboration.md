@@ -1,5 +1,6 @@
 ---
-epistemic-status: seedling
+tags:
+  - epistemic-status:seedling
 ---
 
 To properly understand how to integrate with [[AI|agentic tools]], we need to rethink collaboration models between humans and machines and continually validate via experiments. 

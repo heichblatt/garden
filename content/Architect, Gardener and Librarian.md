@@ -1,5 +1,6 @@
 ---
-epistemic-status: budding
+tags:
+  - epistemic-status:budding
 ---
 
 Common trichotomy of styles in editing [[Topological vs Chronological|topologically structured content]], e.g. [[Digital Garden|digital gardens]].

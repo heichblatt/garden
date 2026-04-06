@@ -1,5 +1,6 @@
 ---
-epistemic-status: budding
+tags:
+  - epistemic-status:budding
 ---
 
 [Mental Nodes Processing versus creating](https://www.mentalnodes.com/processing-versus-creating)

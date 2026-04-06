@@ -1,5 +1,6 @@
 ---
-epistemic-status: budding
+tags:
+  - epistemic-status:budding
 ---
 Use [[AI|it]] to think and write but never let it think or write for you.
 

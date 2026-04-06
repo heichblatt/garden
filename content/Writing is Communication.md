@@ -1,5 +1,6 @@
 ---
-epistemic-status: budding
+tags:
+  - epistemic-status:budding
 ---
 
 Every writing is collaboration, [[Writing is Thinking|even just with yourself]]. Even if it is only to lay down a thought that has passed the complexity threshold of having to write it down to be able to [[Writing is Thinking|develop and explore it further]].

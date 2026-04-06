@@ -1,5 +1,6 @@
 ---
-epistemic-status: seedling
+tags:
+  - epistemic-status:seedling
 ---
 [Wikipedia:](https://en.wikipedia.org/wiki/Creativity)
 

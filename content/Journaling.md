@@ -1,5 +1,6 @@
 ---
-epistemic-status: budding
+tags:
+  - epistemic-status:budding
 ---
 
 Journaling, in whatever form, is [[communication with yourself|Writing is Communication]], which is necessary to grow. It is a fundamental form of [[Writing is Thinking]], a prerequisite for all others.

@@ -1,5 +1,6 @@
 ---
-epistemic-status: budding
+tags:
+  - epistemic-status:budding
 ---
 
 [Mental Nodes: A gardening guide for your mind](https://www.mentalnodes.com/a-gardening-guide-for-your-mind) introduces three concepts in [[Digital Garden|Digital Gardening]]:

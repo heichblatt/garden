@@ -1,5 +1,6 @@
 ---
-epistemic-status: budding
+tags:
+  - epistemic-status:budding
 ---
 
 - To think in public, one must [[Writing is Thinking|write in public]].

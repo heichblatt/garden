@@ -1,5 +1,6 @@
 ---
-epistemic-status: seedling
+tags:
+  - epistemic-status:seedling
 ---
 ## Essentialist Productivity
 

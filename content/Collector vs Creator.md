@@ -1,5 +1,6 @@
 ---
-epistemic-status: budding
+tags:
+  - epistemic-status:budding
 ---
 
 [Mental Nodes: From collector to creator](https://www.mentalnodes.com/from-collector-to-creator)

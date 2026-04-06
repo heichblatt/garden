@@ -1,5 +1,6 @@
 ---
-epistemic-status: budding
+tags:
+  - epistemic-status:budding
 ---
 
 The concept of combining [[Collector vs Creator|already known concepts]] in new and creative ways to [[Processing versus Creating|produce new thoughts]].

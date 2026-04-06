@@ -1,3 +1,8 @@
+---
+tags:
+  - epistemic-status:seedling
+---
+
 
 Maximize impact by focussing relentlessly on highest point of contribution.
 

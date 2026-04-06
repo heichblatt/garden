@@ -1,5 +1,6 @@
 ---
-epistemic-status: budding
+tags:
+  - epistemic-status:budding
 ---
 
 [Wiktionary](https://en.wiktionary.org/wiki/nest_egg):
