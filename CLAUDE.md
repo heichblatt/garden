@@ -126,4 +126,8 @@ npm run check  # catches type errors and formatting issues
 - [Digital Garden](./content/Digital%20Garden.md) — the garden's founding concept
 - [Seeds, Trees and Fruits](./content/Seeds,%20Trees%20and%20Fruits.md) — the maturity model for notes
 - [Think in Public](./content/Think%20in%20Public.md) — why this is public
-- [AI Interaction Modes](./content/AI%20Interaction%20Modes.md) — taxonomy of human-AI collaboration patterns
+- [AI Engagement Patterns](./content/AI%20Engagement%20Patterns.md) — taxonomy of human-AI collaboration patterns
+
+## Tools & Workflows
+
+- [[review-uncommitted]] — skill for reviewing staging area before commits
