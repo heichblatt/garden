@@ -2,7 +2,12 @@
 epistemic-status: budding
 ---
 
-There are four fundamental interaction modes when interacting with AI. 
+There are at least four fundamental engagement patterns when working with AI.
+
+The main differences are:
+
+- context scope: what information is kept and for how long
+- surface: tool/paradigm AI and human use to interact and [[AI-Human Collaboration|collaborate]]
 
 | | **Mode** | **Surface** | **Example Tooling** |
 | ----------- | ----------- | ----------- | ----------- |
@@ -10,3 +15,7 @@ There are four fundamental interaction modes when interacting with AI.
 | **Workshop** | **ephemeral sessions:**<br>user and agent work together toward a goal. context is shared within the session, discarded when it ends. | web UI + coding agent + git repo + git worktrees | [Clay](https://github.com/chadbyte/clay) sessions/worktrees based on GitHub issues |
 | **Companion** | **persistent sessions:**<br>ongoing collaboration with context that accumulates across sessions. | web ui + coding agent + git repo | Clay |
 | **Mission** | **autonomous task sessions:**<br>agent takes a task definition incl. definition of done, works independently, only asks user for approvals. | GitHub issues + PRs +  Kanban | ? |
+
+## Notes
+
+- I think there is a pattern beyond "Mission" that adds another strategic layer on top, examples are [Linear.app](https://linear.app) and [Dan Meisner's "Mission Control"](https://github.com/MeisnerDan/mission-control). I'm not sure yet if that is an extension of "Mission" or something separate.
