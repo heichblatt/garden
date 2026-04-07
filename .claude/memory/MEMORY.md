@@ -1,0 +1,2 @@
+- [Never create files with non-breaking spaces](feedback_filename_safety.md) — use regular spaces and ASCII chars only
+- [Don't repeat content across notes](feedback_no_content_repetition.md) — link instead of duplicating
