@@ -20,3 +20,4 @@ The main differences are:
 ## Notes
 
 - I think there is a pattern beyond "Mission" that adds another strategic layer on top, examples are [Linear.app](https://linear.app) and [Dan Meisner's "Mission Control"](https://github.com/MeisnerDan/mission-control). I'm not sure yet if that is an extension of "Mission" or something separate.
+- Different engagement patterns require different [[Personal AI Infrastructure]] — each pattern has distinct needs for routing, cost, and capability.
