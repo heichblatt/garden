@@ -3,7 +3,7 @@ tags:
   - epistemic-status:budding
 ---
 
-To [[AI|onboard agentic colleagues into existing teams]] we need them to continually improve themselves, by learning from the real world, reflecting on those memories and adapting its behaviour according to insights from reflecting.
+To [[AI-Human Collaboration|onboard agentic colleagues into existing teams]] we need them to continually improve themselves, by learning from the real world, reflecting on those memories and adapting its behaviour according to insights from reflecting.
 
 Self-improvement requires
 
