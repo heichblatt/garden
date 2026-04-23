@@ -1,6 +1,6 @@
 ---
 tags:
-  - epistemic-status:budding
+  - epistemic-status:evergreen
 ---
 
 There are at least four fundamental engagement patterns when working with AI.
