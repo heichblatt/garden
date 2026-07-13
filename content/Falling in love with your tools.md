@@ -7,4 +7,6 @@ People, especially those doing some kind of [[Science, Craft or Art|craft]], wil
 
 Closely related to [shiny toy syndrome](https://nesslabs.com/shiny-toy-syndrome).
 
+gingerBill: ["A good tool is and ought to be invisible"](https://www.gingerbill.org/article/2026/07/10/good-tools-are-invisible/)
+
 [Blog: Don't fall in love with your tools](https://hanneseichblatt.de/posts/dont-fall-in-love-with-your-tools/)
