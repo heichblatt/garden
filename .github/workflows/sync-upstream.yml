@@ -24,12 +24,16 @@ jobs:
       - name: Add upstream remote and fetch
         run: |
           git remote add upstream https://github.com/jackyzha0/quartz.git
-          git fetch upstream v4
+          git fetch upstream v4 --tags
 
       - name: Check if upstream has new commits
         id: check
         run: |
-          UPSTREAM_HEAD=$(git rev-parse upstream/v4)
+          LATEST_TAG=$(git ls-remote --tags upstream 'refs/tags/v4.*' \
+            | awk '{print $2}' | grep -v '\^{}' | sed 's|refs/tags/||' \
+            | sort -V | tail -1)
+          UPSTREAM_HEAD=$(git rev-parse "refs/tags/${LATEST_TAG}^{}")
+          echo "latest_tag=${LATEST_TAG}" >> "$GITHUB_OUTPUT"
           echo "upstream_head=${UPSTREAM_HEAD}" >> "$GITHUB_OUTPUT"
           if git merge-base --is-ancestor "${UPSTREAM_HEAD}" origin/main; then
             echo "up_to_date=true" >> "$GITHUB_OUTPUT"
@@ -40,12 +44,12 @@ jobs:
       - name: Create sync branch and merge upstream
         if: steps.check.outputs.up_to_date == 'false'
         run: |
-          BRANCH="chore/sync-upstream-$(date -u +%Y%m%d)"
+          BRANCH="chore/sync-upstream-${{ steps.check.outputs.latest_tag }}"
           echo "BRANCH=${BRANCH}" >> "$GITHUB_ENV"
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git checkout -b "${BRANCH}" origin/main
-          git merge upstream/v4 -X ours --no-edit
+          git merge "${{ steps.check.outputs.latest_tag }}" -X ours --no-edit
 
       - name: Setup Node.js
         if: steps.check.outputs.up_to_date == 'false'
@@ -71,15 +75,14 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          UPSTREAM_VERSION=$(node -p "require('./package.json').version")
           PR_URL=$(gh pr list --repo "${GITHUB_REPOSITORY}" --head "${BRANCH}" --base main --json url --jq '.[0].url')
           if [ -z "${PR_URL}" ]; then
             PR_URL=$(gh pr create \
               --repo "${GITHUB_REPOSITORY}" \
-              --title "chore: sync upstream Quartz v${UPSTREAM_VERSION}" \
-              --body "Automated sync from upstream \`jackyzha0/quartz\` \`v4\` branch.
+              --title "chore: sync upstream Quartz ${{ steps.check.outputs.latest_tag }}" \
+              --body "Automated sync from upstream \`jackyzha0/quartz\` tag [\`${{ steps.check.outputs.latest_tag }}\`](https://github.com/jackyzha0/quartz/releases/tag/${{ steps.check.outputs.latest_tag }}).
 
-          **Upstream HEAD:** [\`${{ steps.check.outputs.upstream_head }}\`](https://github.com/jackyzha0/quartz/commit/${{ steps.check.outputs.upstream_head }})
+          **Tag commit:** [\`${{ steps.check.outputs.upstream_head }}\`](https://github.com/jackyzha0/quartz/commit/${{ steps.check.outputs.upstream_head }})
 
           Merged with \`-X ours\` to preserve local customizations on conflict.
 
